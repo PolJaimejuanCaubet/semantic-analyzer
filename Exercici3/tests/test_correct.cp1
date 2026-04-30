@@ -1,0 +1,9 @@
+// Correctes a nivell lèxic sintàctic i semàntic amb casament de tipus
+( forall x1:int exists x2:real ( P1( f1(x1, x2):real ) -> P2( f2(x2):int ) and P2(x1) ) );
+P1( f1(a1:int):int, f2(a1, b2:char):char , f1(c1:int) ) or P1( a1, b2, c1 );
+forall x1:int P1( f1(x1):real ) or P1(a1:int, a2:char);
+forall x1:int forall x2:real (P1(x1, x2) -> P2(x2));
+exists x1:char (P1(x1) -> forall x2:char P2(x2));
+forall x1:int forall x2:char (P1(x1, x2) -> P2(x2)) and P1(a1:int,a2:char);
+forall x1:int forall x2:char (P1(x1, x2) -> P2(x2)) and P1(b1:real);
+forall x1:int exists x2:real (P1(f1(x1, x2):int) -> P2(f2(x2):char)) and P1(f1(a1:int):int);

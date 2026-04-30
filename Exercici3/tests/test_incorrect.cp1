@@ -1,0 +1,25 @@
+// fórmules Incorrectes a nivell semàntic
+// Variable x2 no definida
+forall x1:int (P1(x1, x2)-> P2(x2));
+// Redefinició de P1 dins de l'ambit 2n forall
+forall x1:int forall x2:real (P1(x1, x2)-> P1(x2));
+// x2 variable lliure a l'àmbit 1r forall
+(forall x1:int (P1(x1,x2)<->(exists x2:int P2(x2))));
+// Redefinició P1(int) a P1(real)
+(forall x1:int (P1(x1)<->(exists x2:real P1(x2) and P2(x2))));
+// Redefinició P1(int,real) a P1(int)
+forall x1:int exists x2:real (P1(x1, x2)<-> P1(x1));
+// Redefinició P1(int,real) a P1(real, int)
+forall x1:int exists x2:real (P1(x1, x2) and P1(x2, x1));
+// Redefinició de constant a1 de int a real
+forall x1:real (P1(x1, a1:int) -> P2(a1:real));
+// Constant a2 sense tipus
+forall x1:real P1(x1, a1:int) -> P2(a2);
+// Constant a1 a P2 sense tipus (int únicament a l'àmbit forall)
+forall x1:real P1(x1, a1:int) -> P2(a1);
+// Redefinició de f1 dins de l'ambit 2n forall
+forall x1:int forall x2:int (P1(f1(x1, x2):int)-> P2(f1(x2)));
+// f2 definida sense tipus
+forall x1:int (P1(x1,f2(f1(a1:int):char)));
+// Redefinició de funció f1
+forall x1:int exists x2:char (P1(f1(x1,x2):int) or !P2(f1(x2,x1)));

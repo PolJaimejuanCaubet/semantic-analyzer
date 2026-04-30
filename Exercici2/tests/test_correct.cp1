@@ -1,0 +1,7 @@
+// Correctes a nivell lèxic sintàctic i semàntic
+forall x1 forall x2 (P1(x1, x2) -> P2(x2));
+exists x1 (P1(x1) -> forall x2 P2(x2));
+P1(a1,a2) and forall x1 forall x2 (P1(x1, x2) -> P2(x2));
+forall x1 forall x2 (P1(x1, x2) -> P2(x2)) and P1(a1,a2);
+forall x1 forall x2 (P1(x1, x2) -> P2(x2)) and P1(b1);
+forall x1 exists x2 (P1(f1(x1, x2)) -> P2(f2(x2))) and P1(f1(a1),f2(b1,b2),f3(c1));

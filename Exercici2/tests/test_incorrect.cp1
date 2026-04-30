@@ -1,0 +1,16 @@
+// Incorrectes semàntic
+// Variable x2 no definida
+forall x1 (P1(x1, x2)-> P2(x2));
+// Redefinició de P1
+P1(a1) and P1(b1,b2);
+// Redefinició de P1 dins de l'ambit 2n forall
+forall x1 forall x2 (P1(x1, x2)-> P1(x2));
+// Redefinició de P1
+P1(a1) and forall x1 forall x2 (P1(x1, x2) -> P2(x2));
+// Redefinició de f1 dins de l'ambit 2n forall
+forall x1 forall x2 (P1(f1(x1, x2))-> P2(f1(x2)));
+// x2 variable lliure a l'àmbit 1r forall
+(forall x1 (P1(x1,x2)<->(exists x2 P2(x2) and P3(x1,x2) or !P2(f1(x1,x2)))));
+// Redefinició de variable x2
+(forall x1 exists x2 (P1(x1,x2)<->(forall x2 P2(x2) and P3(x1,x2)
+or !P2(f1(x1,x2)))));
