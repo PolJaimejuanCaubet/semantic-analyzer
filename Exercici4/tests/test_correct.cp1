@@ -1,0 +1,19 @@
+// Test correctes Exercici 4 — Notació compacta de variables
+
+// Exemple de l'enunciat: 3 variables int i 2 variables char
+(forall x1, x2, x3:int exists x4, x5:char (P1(x1, x2, x3) -> P2(x4, x5)));
+
+// Llista de 2 variables (mínim)
+forall x1, x2:real (P1(x1, x2) -> P2(x1));
+
+// Barreja: llista compacta i variable individual
+forall x1, x2:int forall x3:char (P1(x1, x2, x3) -> P2(x3));
+
+// exists amb llista compacta
+exists x1, x2, x3, x4:bool P1(x1, x2, x3, x4);
+
+// Llista compacta + funcions + constants
+forall x1, x2:int (P1(f1(x1, x2):real) -> P2(f1(a1:int, a2:int)));
+
+// Sintaxi original (una variable) continua funcionant
+forall x1:int forall x2:char (P1(x1, x2) -> P2(x2));

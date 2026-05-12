@@ -1,0 +1,16 @@
+// Test incorrectes Exercici 4 — Notació compacta de variables
+
+// Variable lliure: x3 no definida a la llista
+forall x1, x2:int (P1(x1, x2, x3) -> P2(x2));
+
+// Redefinició de variable dins la mateixa llista compacta
+forall x1, x1:int P1(x1);
+
+// Redefinició de predicat: P1 definit amb aritat 2, reusat amb aritat 3
+forall x1, x2:int exists x3:char (P1(x1, x2) -> P1(x1, x2, x3));
+
+// Constant sense tipus usada dins àmbit de llista compacta
+forall x1, x2:real P1(x1, x2, a1);
+
+// Redefinició de constant dins fórmula amb llista compacta
+forall x1, x2:int (P1(x1, a1:int) -> P2(a1:real));
